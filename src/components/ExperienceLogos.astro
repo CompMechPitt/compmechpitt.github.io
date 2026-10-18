@@ -20,7 +20,7 @@ const base = import.meta.env.BASE_URL;
 >
   {logos.map(({ file, name, label }) => (
     <li>
-      <div class="logo-image">
+      <div class:list={["logo-image", { "inverse-logo": file === "vit.webp" }]}>
         <img
           src={`${base}media/logos/${file}`}
           alt={`${name} logo`}
@@ -70,6 +70,12 @@ const base = import.meta.env.BASE_URL;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .inverse-logo {
+    height: 76px;
+    padding: 14px;
+    border-radius: 4px;
+    background: #183639;
   }
   img {
     display: block;
