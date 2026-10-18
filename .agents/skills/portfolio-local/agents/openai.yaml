@@ -1,0 +1,5 @@
+interface:
+  display_name: "Portfolio · Local Only"
+  short_description: "Edit locally; I preview and publish."
+policy:
+  allow_implicit_invocation: false

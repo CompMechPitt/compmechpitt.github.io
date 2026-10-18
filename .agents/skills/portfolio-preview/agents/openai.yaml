@@ -1,0 +1,5 @@
+interface:
+  display_name: "Portfolio · Preview Loop"
+  short_description: "Edit and preview locally; I publish."
+policy:
+  allow_implicit_invocation: false
