@@ -8,6 +8,10 @@ Use author-approved sources. Do not infer results, affiliations, publication sta
 
 Edit `src/data/publications.json`. Each record has a unique `id`, `title`, `authors` array, `journal`, integer `year`, nullable `doi`, `links` array (`label`, `url`), and `source`. Use a bare DOI such as `10.xxxx/example` only after verification. Keep unknown DOI values `null`; the page labels them pending verification. Do not put unpublished manuscripts in the published list. Project references use publication IDs.
 
+Google Scholar profile totals and per-publication citation counts are stored in `src/data/scholar-metrics.json`. Verify them directly against the public profile, update the ISO `asOf` date, and keep publication IDs synchronized with `publications.json`. Treat these values as time-dependent snapshots rather than permanent publication metadata.
+
+Journal-level Impact Factors and h-index values are stored in `src/data/journal-metrics.json`. Record the metric year and ISO verification date, prefer the journal or publisher for Journal Impact Factor, and use SCImago for journal h-index. Keep journal names synchronized with `publications.json`, link each displayed metric to its source, and label the values as journal-level rather than article-level measures.
+
 ## Projects
 
 Add `src/content/projects/your-slug.md`. Use YAML frontmatter; the initial entries use YAML flow-style mappings. Required fields: `title`, `summary`, `theme`, `methods` (array), and `publications` (publication ID array). Optional `figures` and `videos` default to empty arrays. Markdown below the frontmatter is the project narrative.

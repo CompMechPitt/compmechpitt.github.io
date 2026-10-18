@@ -46,6 +46,42 @@ for (const pub of pubs) {
   );
   assert.ok(pub.doi === null || /^10\.\d{4,9}\//.test(pub.doi));
 }
+const scholar = JSON.parse(
+  await readFile("src/data/scholar-metrics.json", "utf8"),
+);
+assert.match(scholar.asOf, /^\d{4}-\d{2}-\d{2}$/);
+for (const metric of [
+  scholar.totals.citations,
+  scholar.totals.hIndex,
+  scholar.totals.i10Index,
+]) {
+  assert.ok(Number.isInteger(metric) && metric >= 0);
+}
+assert.deepEqual(
+  new Set(scholar.publications.map((p) => p.id)),
+  new Set(pubs.map((p) => p.id)),
+  "Scholar publication metrics must match publication IDs",
+);
+for (const pub of scholar.publications) {
+  assert.ok(Number.isInteger(pub.citations) && pub.citations >= 0);
+}
+const journalMetrics = JSON.parse(
+  await readFile("src/data/journal-metrics.json", "utf8"),
+);
+assert.match(journalMetrics.asOf, /^\d{4}-\d{2}-\d{2}$/);
+assert.ok(Number.isInteger(journalMetrics.impactFactorYear));
+assert.ok(Number.isInteger(journalMetrics.hIndexYear));
+assert.deepEqual(
+  new Set(journalMetrics.journals.map((metric) => metric.journal)),
+  new Set(pubs.map((pub) => pub.journal)),
+  "Journal metrics must match publication journal names",
+);
+for (const metric of journalMetrics.journals) {
+  assert.ok(metric.impactFactor > 0);
+  assert.ok(Number.isInteger(metric.hIndex) && metric.hIndex > 0);
+  assert.match(metric.impactFactorSource, /^https:\/\//);
+  assert.match(metric.hIndexSource, /^https:\/\//);
+}
 for (const f of await readdir("src/content/projects")) {
   const text = await readFile(`src/content/projects/${f}`, "utf8");
   const data = parse(text.split("---")[1]);

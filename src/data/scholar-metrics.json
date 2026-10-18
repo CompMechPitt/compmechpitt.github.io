@@ -1,0 +1,20 @@
+{
+  "profileUrl": "https://scholar.google.com/citations?user=Fgh0WtUAAAAJ&hl=en",
+  "asOf": "2026-10-18",
+  "totals": {
+    "citations": 166,
+    "hIndex": 7,
+    "i10Index": 7
+  },
+  "publications": [
+    { "id": "axon-centric", "citations": 3 },
+    { "id": "fibrous-fe", "citations": 10 },
+    { "id": "sclera", "citations": 13 },
+    { "id": "gradient-damage", "citations": 14 },
+    { "id": "homogenization", "citations": 19 },
+    { "id": "parallel-xfem", "citations": 43 },
+    { "id": "two-scale", "citations": 16 },
+    { "id": "graphite", "citations": 33 },
+    { "id": "flexural", "citations": 7 }
+  ]
+}

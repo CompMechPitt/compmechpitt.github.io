@@ -1,4 +1,4 @@
 interface:
   display_name: "Personal Web Portfolio"
   short_description: "Edit Manik Bansal's research portfolio"
-  default_prompt: "Use $personal-web-portfolio to update my portfolio and open a new review pull request."
+  default_prompt: "Use $personal-web-portfolio to make an evidence-backed update to my Astro portfolio."
