@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import publications from "../data/publications.json";
+---
+
+<Layout title="Publications">
+  <p class="eyebrow">Scholarship</p>
+  <h1>Publications</h1>
+  <p class="lead">
+    Journal publications listed in the supplied CV. Bibliographic metadata is
+    preserved without inferring missing identifiers.
+  </p>
+  <p class="placeholder">
+    DOIs and publisher links: pending verification. Add verified identifiers
+    before publication. In-progress manuscripts are not presented as published
+    work.
+  </p>
+  {publications.map((p) => (
+    <article class="publication" id={p.id}>
+      <p class="eyebrow">{p.year} · Journal article</p>
+      <h2>{p.title}</h2>
+      <p>{p.authors.join(", ")}</p>
+      <p>
+        <em>{p.journal}</em> · {p.year}
+      </p>
+      {p.doi ? (
+        <a href={`https://doi.org/${p.doi}`}>DOI: {p.doi}</a>
+      ) : (
+        <span class="meta">DOI: placeholder — pending verification</span>
+      )}
+      {p.links.map((l: { label: string; url: string }) => (
+        <p>
+          <a href={l.url}>{l.label}</a>
+        </p>
+      ))}
+    </article>
+  ))}
+</Layout>
