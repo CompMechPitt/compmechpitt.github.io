@@ -1,17 +1,22 @@
 ---
 interface Props {
   logos: { file: string; name: string; label: string }[];
+  ariaLabel?: string;
 }
-const { logos } = Astro.props;
+const { logos, ariaLabel = "Research institutions and sponsors" } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
 <ul
   class:list={[
     "experience-logos",
-    { "four-logos": logos.length === 4, "two-logos": logos.length === 2 },
+    {
+      "four-logos": logos.length === 4,
+      "two-logos": logos.length === 2,
+      "one-logo": logos.length === 1,
+    },
   ]}
-  aria-label="Research institutions and sponsors"
+  aria-label={ariaLabel}
 >
   {logos.map(({ file, name, label }) => (
     <li>
@@ -41,6 +46,11 @@ const base = import.meta.env.BASE_URL;
   }
   .two-logos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .one-logo {
+    grid-template-columns: 1fr;
+    max-width: 220px;
+    justify-self: center;
   }
   .four-logos li:first-child {
     grid-column: 1 / -1;

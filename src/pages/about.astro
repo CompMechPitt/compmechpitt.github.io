@@ -102,11 +102,57 @@ const b = import.meta.env.BASE_URL;
   </section>
   <section class="section">
     <h2>Education</h2>
-    <ul>
-      <li>PhD, Mechanical Engineering (Design), IIT Roorkee, 2014–2019</li>
-      <li>M.Tech, CAD/CAM, Vellore Institute of Technology, 2011–2013</li>
-      <li>B.E., Mechanical Engineering, University of Pune, 2005–2009</li>
-    </ul>
+    <div class="timeline">
+      <div>
+        <p class="eyebrow">2014 – 2019</p>
+        <h2>PhD, Mechanical Engineering (Design)</h2>
+        <p>Indian Institute of Technology Roorkee</p>
+      </div>
+      <ExperienceLogos
+        logos={[
+          {
+            file: "iit-roorkee.png",
+            name: "Indian Institute of Technology Roorkee",
+            label: "IIT Roorkee",
+          },
+        ]}
+        ariaLabel="Degree institution"
+      />
+    </div>
+    <div class="timeline">
+      <div>
+        <p class="eyebrow">2011 – 2013</p>
+        <h2>M.Tech, CAD/CAM</h2>
+        <p>Vellore Institute of Technology</p>
+      </div>
+      <ExperienceLogos
+        logos={[
+          {
+            file: "vit.webp",
+            name: "Vellore Institute of Technology",
+            label: "VIT",
+          },
+        ]}
+        ariaLabel="Degree institution"
+      />
+    </div>
+    <div class="timeline">
+      <div>
+        <p class="eyebrow">2005 – 2009</p>
+        <h2>B.E., Mechanical Engineering</h2>
+        <p>University of Pune</p>
+      </div>
+      <ExperienceLogos
+        logos={[
+          {
+            file: "university-of-pune.jpg",
+            name: "University of Pune",
+            label: "University of Pune",
+          },
+        ]}
+        ariaLabel="Degree institution"
+      />
+    </div>
   </section>
   <section class="section" id="cv-resume">
     <h2>CV &amp; resume</h2>

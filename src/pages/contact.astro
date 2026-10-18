@@ -1,5 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const profiles = [
+  {
+    name: "LinkedIn",
+    detail: "Professional network",
+    mark: "in",
+    className: "linkedin",
+    icon: "https://cdn.simpleicons.org/linkedin/FFFFFF",
+    url: "https://www.linkedin.com/in/manikbansalphdiitr/",
+  },
+  {
+    name: "Google Scholar",
+    detail: "Publications and citations",
+    mark: "G",
+    className: "scholar",
+    icon: "https://cdn.simpleicons.org/googlescholar/FFFFFF",
+    url: "https://scholar.google.com/citations?user=Fgh0WtUAAAAJ&hl=en",
+  },
+  {
+    name: "ORCID",
+    detail: "Researcher identifier",
+    mark: "iD",
+    className: "orcid",
+    icon: "https://cdn.simpleicons.org/orcid/183639",
+    url: "https://orcid.org/0000-0002-2754-2497",
+  },
+  {
+    name: "GitHub",
+    detail: "Code and projects",
+    mark: "GH",
+    className: "github",
+    icon: "https://cdn.simpleicons.org/github/FFFFFF",
+    url: "https://github.com/CompMechPitt",
+  },
+];
 ---
 
 <Layout title="Contact">
@@ -15,9 +50,117 @@ import Layout from "../layouts/Layout.astro";
       <a href="mailto:manikbansal.iitr@gmail.com">manikbansal.iitr@gmail.com</a>
     </p>
     <h2>Professional profiles</h2>
-    <p class="placeholder">
-      Placeholder — verified Google Scholar, ORCID, LinkedIn, and GitHub profile
-      URLs pending.
-    </p>
+    <ul class="profiles">
+      {profiles.map((profile) => (
+        <li>
+          <a href={profile.url} target="_blank" rel="noopener noreferrer">
+            <span
+              class:list={["profile-mark", profile.className]}
+              aria-hidden="true"
+            >
+              {profile.mark}
+              <img src={profile.icon} alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="profile-copy">
+              <strong>{profile.name}</strong>
+              <small>{profile.detail}</small>
+            </span>
+            <span class="profile-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 </Layout>
+
+<style>
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 22px 0 0;
+    max-width: 900px;
+  }
+  .profiles a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 100px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    background: #fafaf6;
+    text-decoration: none;
+    transition:
+      border-color 160ms ease,
+      transform 160ms ease;
+  }
+  .profiles a:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .profile-mark {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: -0.06em;
+  }
+  .profile-mark img {
+    position: absolute;
+    inset: 12px;
+    width: 26px;
+    height: 26px;
+  }
+  .linkedin {
+    background: #0a66c2;
+  }
+  .scholar {
+    background: #406fb4;
+    font-family: Georgia, serif;
+  }
+  .orcid {
+    background: #a6ce39;
+    color: #183639;
+  }
+  .github {
+    background: #24292f;
+    font-size: 16px;
+  }
+  .profile-copy {
+    display: grid;
+    gap: 2px;
+  }
+  .profile-copy strong {
+    font-size: 16px;
+  }
+  .profile-copy small {
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .profile-arrow {
+    margin-left: auto;
+    font-size: 22px;
+    line-height: 1;
+  }
+  @media (max-width: 640px) {
+    .profiles {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .profiles a {
+      transition: none;
+    }
+  }
+</style>
