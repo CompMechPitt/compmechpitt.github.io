@@ -16,7 +16,7 @@ Figure entry: `{ "src": "media/example.webp", "alt": "Describe the scientific co
 
 ## Other pages and documents
 
-Edit `src/pages/about.astro`, `teaching.astro`, `service.astro`, `software.astro`, or `contact.astro`. Keep links base-aware using `import.meta.env.BASE_URL`. Update page title and description where helpful.
+Edit `src/pages/about.astro`, `research.astro`, `teaching.astro`, `service.astro`, `software.astro`, or `contact.astro`. The About page holds the CV/resume downloads; Research holds the project overview, with project detail pages in `src/pages/projects/[id].astro`. Keep links base-aware using `import.meta.env.BASE_URL`. Update page title and description where helpful.
 
 Replace the two PDFs in `public/downloads/` independently. The public CV has its referee section removed; do not restore referee contacts. Other personal details and the labeled draft resume were approved by the author for public release. The industry resume is visibly marked DRAFT and should be tailored and approved before removing that label. No numerical achievements were invented.
 

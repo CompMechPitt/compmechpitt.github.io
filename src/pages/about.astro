@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ExperienceLogos from "../components/ExperienceLogos.astro";
+const b = import.meta.env.BASE_URL;
 ---
 
 <Layout title="About">
@@ -106,6 +107,46 @@ import ExperienceLogos from "../components/ExperienceLogos.astro";
       <li>M.Tech, CAD/CAM, Vellore Institute of Technology, 2011–2013</li>
       <li>B.E., Mechanical Engineering, University of Pune, 2005–2009</li>
     </ul>
+  </section>
+  <section class="section" id="cv-resume">
+    <h2>CV &amp; resume</h2>
+    <p class="lead">Download the academic CV or the draft industry resume.</p>
+    <div class="paths">
+      <section class="path">
+        <p class="eyebrow">Academic applications</p>
+        <h3>Curriculum vitae</h3>
+        <p>
+          CV supplied by the author, dated May 20, 2026; referee section removed
+          for public release.
+        </p>
+        <a class="button" href={`${b}downloads/ManikBansal-CV.pdf`} download>
+          Download academic CV (PDF)
+        </a>
+        <p class="placeholder">
+          Public version: referee contact information has been removed. Other
+          personal details are retained with author approval.
+        </p>
+      </section>
+      <section class="path" id="industry">
+        <p class="eyebrow">Engineering &amp; industry</p>
+        <h3>Industry resume</h3>
+        <p>
+          A concise draft derived from the supplied CV, emphasizing simulation,
+          programming, and engineering work.
+        </p>
+        <a
+          class="button"
+          href={`${b}downloads/ManikBansal-Industry-Resume.pdf`}
+          download
+        >
+          Download draft resume (PDF)
+        </a>
+        <p class="placeholder">
+          Draft for author review — target role and tailored achievements
+          pending.
+        </p>
+      </section>
+    </div>
   </section>
 </Layout>
 

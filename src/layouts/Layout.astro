@@ -14,11 +14,9 @@ const nav = [
   ["About", "about/"],
   ["Research", "research/"],
   ["Publications", "publications/"],
-  ["Projects", "projects/"],
   ["Software & Tools", "software/"],
   ["Teaching", "teaching/"],
   ["Awards & Service", "service/"],
-  ["CV / Resume", "cv/"],
   ["Contact", "contact/"],
 ];
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -51,30 +49,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             Manik Bansal<small>Computational mechanics & biomechanics</small>
           </span>
         </a>
-        <details class="navigation">
-          <summary>Explore</summary>
-          <nav aria-label="Main navigation">
-            <a
-              href={href("")}
-              aria-current={
-                Astro.url.pathname === href("") ? "page" : undefined
-              }
-            >
-              Home
-            </a>
-            {nav.map(([label, path]) => (
-              <a
-                href={href(path)}
-                aria-current={
-                  Astro.url.pathname === href(path) ? "page" : undefined
-                }
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-        </details>
       </div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a
+          href={href("")}
+          aria-current={Astro.url.pathname === href("") ? "page" : undefined}
+        >
+          Home
+        </a>
+        {nav.map(([label, path]) => (
+          <a
+            href={href(path)}
+            aria-current={
+              Astro.url.pathname === href(path) ? "page" : undefined
+            }
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
     </header>
     <main id="main">
       <slot />
