@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
 const b = import.meta.env.BASE_URL;
 ---
 
@@ -10,31 +12,20 @@ const b = import.meta.env.BASE_URL;
     Connecting microstructure and mechanics to understand failure in engineered
     materials and biological tissues.
   </p>
-  <div class="grid">
-    <article class="card">
-      <h2>Composite fracture</h2>
-      <p>
-        Multiscale modeling, stochastic fracture, and XFEM for heterogeneous
-        particulate materials.
-      </p>
-      <a href={`${b}projects/composites/`}>Materials research →</a>
-    </article>
-    <article class="card">
-      <h2>Ocular biomechanics</h2>
-      <p>
-        Collagen architecture, fiber-based models, and axon-centric measures of
-        mechanical insult.
-      </p>
-      <a href={`${b}projects/ocular/`}>Ocular research →</a>
-    </article>
-    <article class="card">
-      <h2>Brain biomechanics</h2>
-      <p>
-        Computational head models and physics-based approaches to blast injury.
-      </p>
-      <a href={`${b}projects/brain/`}>Brain research →</a>
-    </article>
-  </div>
+  <section class="section" id="projects">
+    <h2>Research projects</h2>
+    <p>Methods and research questions across materials and biomechanics.</p>
+    <div class="grid">
+      {projects.map((project) => (
+        <article class="card">
+          <p class="eyebrow">{project.data.theme}</p>
+          <h3>{project.data.title}</h3>
+          <p>{project.data.summary}</p>
+          <a href={`${b}projects/${project.id}/`}>Explore project →</a>
+        </article>
+      ))}
+    </div>
+  </section>
   <section class="section">
     <h2>A shared computational toolkit</h2>
     <p>
