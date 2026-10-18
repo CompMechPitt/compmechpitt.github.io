@@ -1,0 +1,4 @@
+// Keep Astro's npm scripts portable across Windows, macOS, Linux, and CI.
+process.env.ASTRO_TELEMETRY_DISABLED ??= "1";
+
+await import("../node_modules/astro/bin/astro.mjs");

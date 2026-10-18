@@ -18,6 +18,8 @@ If the cloud machine has an unwritable default npm cache, use `npm ci --cache /t
 
 `build` runs Astro’s TypeScript/content checks and production generation. `test` checks generated internal links, assets, page landmarks, project publication references, and downloads. Browser keyboard, screen-reader, and visual checks remain recommended before release.
 
+For the Windows localhost workflow, the `G:`-drive content-loading fallback, and pull-request commands, see [LOCAL_PREVIEW_AND_PULL_REQUEST_GUIDE.md](LOCAL_PREVIEW_AND_PULL_REQUEST_GUIDE.md).
+
 ## Content
 
 See [CONTENT_GUIDE.md](CONTENT_GUIDE.md). The main navigation shows Home, About, Research, Publications, Software & Tools, Teaching, Awards & Service, and Contact in a horizontal row. Research includes the project overview, and About includes the CV and resume downloads. The old `/projects/` and `/cv/` URLs remain as signposts. Facts derive from the supplied CV (May 20, 2026) and user-provided research themes. Missing DOIs, media, and future research details are explicitly labeled. The industry resume is a draft, not an approved application document.
