@@ -189,7 +189,7 @@ const b = import.meta.env.BASE_URL;
 <style>
   .timeline {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-columns: minmax(0, 1fr) clamp(340px, 38vw, 420px);
     align-items: center;
     gap: 36px;
     padding: 28px 0;

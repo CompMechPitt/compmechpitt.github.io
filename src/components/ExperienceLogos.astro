@@ -95,4 +95,19 @@ const base = import.meta.env.BASE_URL;
   .blend-logo {
     mix-blend-mode: multiply;
   }
+  @media (min-width: 851px) {
+    .experience-logos:not(.one-logo) .logo-image {
+      height: 116px;
+    }
+    .experience-logos:not(.one-logo) img {
+      max-height: 112px;
+    }
+    .experience-logos.four-logos li:first-child .logo-image {
+      height: 66px;
+    }
+    .experience-logos.four-logos li:first-child img {
+      max-width: 360px;
+      max-height: 66px;
+    }
+  }
 </style>
