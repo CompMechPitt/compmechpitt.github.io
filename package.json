@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "node scripts/run-astro.mjs dev --host 0.0.0.0",
+    "dev": "node scripts/run-astro.mjs dev --host 127.0.0.1 --port 5501 --strictPort",
     "build": "node scripts/run-astro.mjs check && node scripts/run-astro.mjs build",
     "preview": "node scripts/run-astro.mjs preview --host 0.0.0.0",
     "check": "node scripts/run-astro.mjs check",

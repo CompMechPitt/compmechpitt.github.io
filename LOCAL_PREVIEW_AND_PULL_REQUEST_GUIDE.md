@@ -85,25 +85,19 @@ Run this command yourself in a normal PowerShell window, not in a restricted aut
 ```powershell
 npm run dev
 ```
-
+Here we did some-default modifications to the IP address and port. We made the working port permanent by modifying the dev script in package.json, not run-astro.mjs.
+```
+"dev": "node scripts/run-astro.mjs dev --host 127.0.0.1 --port 5501 --strictPort"
+```
+For a local-only preview, use:
 Keep that terminal open. Wait for output similar to:
 
 ```text
 astro ready
-Local http://localhost:4321/
+Local http://localhost:5501/
 ```
 
-Open the exact printed URL. If Astro reports `4322`, use `http://localhost:4322/`; do not continue using the old `4321` bookmark.
-
-If the link does not open in an application's embedded browser, copy the URL into Edge, Chrome, or Firefox on the same Windows computer where PowerShell is running.
-
-Optionally verify the response from a second PowerShell window:
-
-```powershell
-(Invoke-WebRequest -Uri 'http://localhost:4321/' -UseBasicParsing).StatusCode
-```
-
-A healthy response prints `200`. Change the port in the command if Astro selected another one. Stop the server with `Ctrl+C` when finished.
+Open the exact printed URL. If Astro reports `5501`, use `http://localhost:5501/`
 
 ### 3. Record the before state
 
