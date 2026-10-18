@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0",
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 0.0.0.0",
-    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "dev": "node scripts/run-astro.mjs dev --host 0.0.0.0",
+    "build": "node scripts/run-astro.mjs check && node scripts/run-astro.mjs build",
+    "preview": "node scripts/run-astro.mjs preview --host 0.0.0.0",
+    "check": "node scripts/run-astro.mjs check",
     "test": "node scripts/check-site.mjs"
   },
   "repository": {
