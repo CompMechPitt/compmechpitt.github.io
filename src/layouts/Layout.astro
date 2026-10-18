@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = "Manik Bansal — computational mechanics, biomechanics, fracture mechanics, and scientific computing.",
+} = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const href = (path: string) => `${base}/${path}`;
+const nav = [
+  ["About", "about/"],
+  ["Research", "research/"],
+  ["Publications", "publications/"],
+  ["Projects", "projects/"],
+  ["Software & Tools", "software/"],
+  ["Teaching", "teaching/"],
+  ["Awards & Service", "service/"],
+  ["CV / Resume", "cv/"],
+  ["Contact", "contact/"],
+];
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} | Manik Bansal</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={`${title} | Manik Bansal`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#142e32" />
+    <link rel="icon" href={href("favicon.svg")} type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      Skip to content
+    </a>
+    <header>
+      <div class="header-inner">
+        <a class="brand" href={href("")} aria-label="Manik Bansal — Home">
+          MB
+          <span>
+            Manik Bansal<small>Computational mechanics & biomechanics</small>
+          </span>
+        </a>
+        <details class="navigation">
+          <summary>Explore</summary>
+          <nav aria-label="Main navigation">
+            <a
+              href={href("")}
+              aria-current={
+                Astro.url.pathname === href("") ? "page" : undefined
+              }
+            >
+              Home
+            </a>
+            {nav.map(([label, path]) => (
+              <a
+                href={href(path)}
+                aria-current={
+                  Astro.url.pathname === href(path) ? "page" : undefined
+                }
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer>
+      <div>
+        <strong>Manik Bansal</strong>
+        <p>Mechanics. Computation. Human impact.</p>
+      </div>
+      <div>
+        <a href={href("contact/")}>Start a conversation ↗</a>
+        <p>Content source: supplied CV, May 20, 2026.</p>
+        <small>Affiliations and ongoing roles reflect that document.</small>
+      </div>
+    </footer>
+  </body>
+</html>

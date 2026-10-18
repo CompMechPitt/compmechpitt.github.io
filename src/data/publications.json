@@ -1,0 +1,145 @@
+[
+  {
+    "id": "axon-centric",
+    "title": "Proposing a methodology for axon-centric analysis of IOP-induced mechanical insult",
+    "authors": [
+      "Manik Bansal",
+      "Bingrui Wang",
+      "Susannah Waxman",
+      "Fuqiang Zhong",
+      "Yi Hua",
+      "Yuankai Lu",
+      "Juan Reynaud",
+      "Brad Fortune",
+      "Ian A. Sigal"
+    ],
+    "journal": "Investigative Ophthalmology & Visual Science",
+    "year": 2024,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "fibrous-fe",
+    "title": "Fibrous Finite Element Modeling of the Optic Nerve Head Region",
+    "authors": [
+      "Mohammad R. Islam",
+      "Fengting Ji",
+      "Manik Bansal",
+      "Yi Hua",
+      "Ian A. Sigal"
+    ],
+    "journal": "Acta Biomaterialia",
+    "year": 2024,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "sclera",
+    "title": "A direct fiber approach to model sclera collagen architecture and biomechanics",
+    "authors": [
+      "Fengting Ji",
+      "Manik Bansal",
+      "Bingrui Wang",
+      "Yi Hua",
+      "Felix Matuschke",
+      "Markus Axer",
+      "Ian A. Sigal"
+    ],
+    "journal": "Experimental Eye Research",
+    "year": 2023,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "gradient-damage",
+    "title": "An XFEM-strain gradient damage model for efficient modeling of materials with reinforcement particles",
+    "authors": ["Manik Bansal", "Subrato Sarkar", "I. V. Singh"],
+    "journal": "Engineering Fracture Mechanics",
+    "year": 2022,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "homogenization",
+    "title": "A Simple and Robust Computational Homogenization Approach for Heterogeneous Particulate Composites",
+    "authors": [
+      "Manik Bansal",
+      "I. V. Singh",
+      "R. U. Patil",
+      "Susanne Claus",
+      "S. P. A. Bordas"
+    ],
+    "journal": "Computer Methods in Applied Mechanics and Engineering",
+    "year": 2019,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "parallel-xfem",
+    "title": "A Parallel and Efficient Multi-Split XFEM for 3-D Analysis of Heterogeneous Materials",
+    "authors": [
+      "Manik Bansal",
+      "I. V. Singh",
+      "B. K. Mishra",
+      "S. P. A. Bordas"
+    ],
+    "journal": "Computer Methods in Applied Mechanics and Engineering",
+    "year": 2019,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "two-scale",
+    "title": "A two-scale stochastic framework for predicting failure strength probability of heterogeneous materials",
+    "authors": [
+      "Manik Bansal",
+      "I. V. Singh",
+      "B. K. Mishra",
+      "Kamal Sharma",
+      "I. A. Khan"
+    ],
+    "journal": "Composite Structures",
+    "year": 2017,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "graphite",
+    "title": "A stochastic XFEM model for the tensile strength prediction of heterogeneous graphite based on microstructural observations",
+    "authors": [
+      "Manik Bansal",
+      "I. V. Singh",
+      "B. K. Mishra",
+      "Kamal Sharma",
+      "I. A. Khan"
+    ],
+    "journal": "Journal of Nuclear Materials",
+    "year": 2017,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  },
+  {
+    "id": "flexural",
+    "title": "A numerical prediction of flexural strength probability for NBG-18 nuclear grade graphite using strength pair model",
+    "authors": [
+      "Manik Bansal",
+      "I. V. Singh",
+      "B. K. Mishra",
+      "Kamal Sharma",
+      "I. A. Khan"
+    ],
+    "journal": "The Journal of Strain Analysis for Engineering Design",
+    "year": 2017,
+    "doi": null,
+    "links": [],
+    "source": "Supplied CV, May 20, 2026"
+  }
+]

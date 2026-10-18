@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+const b = import.meta.env.BASE_URL;
+---
+
+<Layout title="Home">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Manik Bansal · Research portfolio</p>
+      <h1>
+        Understanding failure.
+        <br />
+        Advancing <em>mechanics.</em>
+      </h1>
+      <p class="lead">
+        Computational models that connect material microstructure, tissue
+        mechanics, and injury biomechanics.
+      </p>
+      <p>
+        Fracture mechanics of composites · Ocular & brain biomechanics ·
+        Scientific computing
+      </p>
+      <div class="actions">
+        <a class="button" href={`${b}research/`}>
+          Explore the research ↗
+        </a>
+        <a class="button secondary" href={`${b}cv/`}>
+          CV & resume
+        </a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg
+        viewBox="0 0 400 440"
+        role="img"
+        aria-label="Abstract finite element mesh illustration, not research data"
+      >
+        <defs>
+          <pattern
+            id="mesh"
+            width="40"
+            height="40"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M0 0H40V40H0ZM0 0L40 40M40 0L0 40"
+              fill="none"
+              stroke="#54716b"
+              stroke-width=".7"
+            />
+          </pattern>
+          <clipPath id="shape">
+            <path d="M200 25C355 35 390 155 350 270S240 417 132 380S18 238 56 137S126 20 200 25Z" />
+          </clipPath>
+        </defs>
+        <g clip-path="url(#shape)">
+          <rect width="400" height="440" fill="url(#mesh)" />
+          <path
+            d="M215 55L182 160L225 195L175 282L195 370"
+            fill="none"
+            stroke="#b2492d"
+            stroke-width="5"
+          />
+          <circle cx="225" cy="195" r="35" fill="#b2492d" opacity=".1" />
+        </g>
+        <path d="M40 395H115M40 395V320" fill="none" stroke="#183639" />
+        <text x="123" y="400" font-size="12" fill="#183639">
+          x
+        </text>
+        <text x="35" y="310" font-size="12" fill="#183639">
+          y
+        </text>
+      </svg>
+      <small>Conceptual mesh illustration · not simulation data</small>
+    </div>
+  </section>
+  <section class="section">
+    <p class="eyebrow">Research directions</p>
+    <h2>
+      From engineered materials
+      <br />
+      to living systems.
+    </h2>
+    <div class="grid">
+      {projects.map((p, i) => (
+        <article class="card">
+          <span class="index">
+            0{i + 1} / {p.data.theme}
+          </span>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.summary}</p>
+          <a href={`${b}projects/${p.id}/`}>View research →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section">
+    <p class="eyebrow">Find your path</p>
+    <div class="paths">
+      <div class="path">
+        <h2>For academic colleagues</h2>
+        <p>Research contributions, scholarship, and teaching experience.</p>
+        <a href={`${b}publications/`}>Publications →</a>
+        <a href={`${b}teaching/`}>Teaching →</a>
+        <a href={`${b}cv/`}>Academic CV →</a>
+      </div>
+      <div class="path">
+        <h2>For engineering teams</h2>
+        <p>
+          Simulation methods, scientific computing, and engineering experience.
+        </p>
+        <a href={`${b}projects/`}>Projects →</a>
+        <a href={`${b}software/`}>Technical toolkit →</a>
+        <a href={`${b}cv/#industry`}>Industry resume →</a>
+      </div>
+    </div>
+  </section>
+</Layout>

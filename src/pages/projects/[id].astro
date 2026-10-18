@@ -1,0 +1,75 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import publications from "../../data/publications.json";
+export async function getStaticPaths() {
+  return (await getCollection("projects")).map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+const related = publications.filter((p) =>
+  project.data.publications.includes(p.id),
+);
+---
+
+<Layout title={project.data.title} description={project.data.summary}>
+  <a href={`${import.meta.env.BASE_URL}projects/`}>← All projects</a>
+  <p class="eyebrow">{project.data.theme}</p>
+  <h1>{project.data.title}</h1>
+  <p class="lead">{project.data.summary}</p>
+  <div class="tags">
+    {project.data.methods.map((m: string) => (
+      <span class="tag">{m}</span>
+    ))}
+  </div>
+  <div class="prose">
+    <Content />
+  </div>
+  {project.data.figures.map((f) => (
+    <figure>
+      <img
+        src={`${import.meta.env.BASE_URL}${f.src.replace(/^\//, "")}`}
+        alt={f.alt}
+        loading="lazy"
+      />
+      <figcaption>{f.caption}</figcaption>
+    </figure>
+  ))}
+  {project.data.videos.map((v) => (
+    <figure>
+      <video controls preload="none" aria-label={v.title}>
+        <source
+          src={`${import.meta.env.BASE_URL}${v.src.replace(/^\//, "")}`}
+        />
+        <track
+          kind="captions"
+          src={`${import.meta.env.BASE_URL}${v.captions.replace(/^\//, "")}`}
+          srclang="en"
+          label="English"
+          default
+        />
+      </video>
+      <figcaption>{v.title}</figcaption>
+    </figure>
+  ))}
+  <section class="section">
+    <h2>Related publications</h2>
+    {related.length ? (
+      related.map((p) => (
+        <p>
+          <a href={`${import.meta.env.BASE_URL}publications/#${p.id}`}>
+            {p.title}
+          </a>
+        </p>
+      ))
+    ) : (
+      <p class="placeholder">
+        Placeholder — related published work has not been supplied for this
+        project.
+      </p>
+    )}
+  </section>
+</Layout>

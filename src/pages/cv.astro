@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+const b = import.meta.env.BASE_URL;
+---
+
+<Layout title="CV & Resume">
+  <p class="eyebrow">Manik Bansal</p>
+  <h1>CV & Resume</h1>
+  <p class="lead">Two views of the same research and engineering experience.</p>
+  <div class="paths">
+    <section class="path">
+      <p class="eyebrow">Academic applications</p>
+      <h2>Curriculum vitae</h2>
+      <p>CV supplied by the author, dated May 20, 2026; referee section removed for public release.</p>
+      <a class="button" href={`${b}downloads/ManikBansal-CV.pdf`} download>
+        Download academic CV (PDF)
+      </a>
+      <p class="placeholder">
+        Public version: referee contact information has been removed. Other
+        personal details are retained with author approval.
+      </p>
+    </section>
+    <section class="path" id="industry">
+      <p class="eyebrow">Engineering & industry</p>
+      <h2>Industry resume</h2>
+      <p>
+        A concise draft derived from the supplied CV, emphasizing simulation,
+        programming, and engineering work.
+      </p>
+      <a
+        class="button"
+        href={`${b}downloads/ManikBansal-Industry-Resume.pdf`}
+        download
+      >
+        Download draft resume (PDF)
+      </a>
+      <p class="placeholder">
+        Draft for author review — target role and tailored achievements pending.
+      </p>
+    </section>
+  </div>
+</Layout>
