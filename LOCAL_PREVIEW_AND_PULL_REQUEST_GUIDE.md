@@ -43,6 +43,117 @@ Install these tools in the normal Windows user environment:
 - Git
 - GitHub CLI (`gh`) if creating the pull request from the terminal; otherwise use the GitHub website
 
+You can install all three tools directly in your normal Windows 11 environment, using PowerShell or Windows Terminal. You do not need WSL, Docker, or a Linux environment. For your GitHub portfolio and Codex workflow, I recommend using WinGet (Windows Package Manager) because it makes installation and future updates straightforward.
+
+### P.1. Install all three tools using PowerShell
+
+Open Start → Windows Terminal → PowerShell.
+
+First check that WinGet is available:
+
+```
+winget --version
+```
+
+Then run these three commands individually:
+
+Node.js 24 LTS (includes npm)
+```
+winget install --id OpenJS.NodeJS.LTS --exact
+```
+Git for Windows
+```
+winget install --id Git.Git --exact --source winget
+```
+GitHub CLI (`gh`)
+Optional
+```
+winget install --id GitHub.cli --exact --source winget
+```
+These commands use the published Windows package IDs. Node.js 24 is currently an LTS release, and npm is bundled with its standard installer.&#x20; Windows may request administrator approval for some installers, even when you launch PowerShell normally.
+
+### P.2. Verify installation
+
+Close all Windows Terminal windows and reopen PowerShell so the updated PATH is loaded.
+
+Run:
+
+```
+node --version
+npm --version
+git --version
+gh --version
+```
+
+Expected results should resemble:
+
+```
+v24.x.x
+11.x.x
+git version 2.x.x
+gh version 2.x.x
+```
+
+If PowerShell blocks `npm` due to script execution policy, try `npm.cmd --version` instead.
+
+### P.3. Configure Git and GitHub authentication
+
+Configure your Git commit identity (use your own name and GitHub-associated email):
+
+```
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+```
+
+If you installed GitHub CLI, authenticate through your browser:
+
+```
+gh auth login --web
+```
+
+Follow the browser instructions, and then verify:
+```
+gh auth status
+```
+
+This is the documented GitHub CLI authentication workflow.&#x20; Take GitHub to the command line
+
+### P.4. Create pull requests: terminal versus GitHub website
+
+Both approaches work with your protected GitHub repository.
+
+| Operation           | GitHub CLI     | GitHub website         |
+| ------------------- | -------------- | ---------------------- |
+| Create pull request | `gh pr create` | Compare & pull request |
+| Review changes      | `gh pr diff`   | Files changed tab      |
+| Merge pull request  | `gh pr merge`  | Merge button           |
+| Extra installation  | Yes            | No                     |
+
+For your `compmechpitt.github.io` repository, after committing and pushing a feature branch, you can create a PR using:
+
+```
+gh pr create --base main --web
+```
+
+This opens the PR creation workflow in your browser.
+
+Alternatively, simply navigate to your repository on GitHub and click Compare & pull request after pushing the branch.
+
+### P.5. After installation: test your portfolio project
+
+Once the repository is cloned onto Windows, navigate to its folder and run:
+
+```
+npm ci
+npm run build
+```
+
+These assume your project contains a `package-lock.json` and defines a `build` script in `package.json`.
+
+My recommendation: Install all three, including `gh`. Since you're using Codex to maintain your GitHub portfolio, this gives you the flexibility to create branches, run builds, submit pull requests, and manage reviews directly from PowerShell without repeatedly switching to the GitHub website.
+
+One important distinction: installing these tools on Windows makes them available locally. It does not automatically install them in a separate Codex cloud environment.
+
 Open a **new** PowerShell window after installing or changing `PATH`, then verify:
 
 ```powershell
@@ -52,7 +163,17 @@ git --version
 gh --version
 ```
 
-The first three commands must print versions. If `node` works but `npm` does not, repair or reinstall the standard Node.js distribution and reopen PowerShell. A bundled application runtime can expose `node.exe` without supplying npm; that runtime is insufficient for the normal manual workflow.
+If `node` works but `npm` does not, repair or reinstall the standard Node.js distribution and reopen PowerShell. Please Run the following command in your existing PowerShell window: 
+```
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+If prompted to confirm, select Y.
+This permits locally created PowerShell scripts to run while generally requiring downloaded scripts to be signed, subject to Windows security policies. No administrator privileges should be required because the setting applies only to your Windows user account.
+
+
+
+
+A bundled application runtime can expose `node.exe` without supplying npm; that runtime is insufficient for the normal manual workflow.
 
 Install the exact dependencies recorded in `package-lock.json`:
 
