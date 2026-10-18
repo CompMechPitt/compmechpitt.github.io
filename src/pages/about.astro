@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ExperienceLogos from "../components/ExperienceLogos.astro";
 ---
 
 <Layout title="About">
@@ -16,31 +17,86 @@ import Layout from "../layouts/Layout.astro";
   <section class="section">
     <h2>Research experience</h2>
     <div class="timeline">
-      <p class="eyebrow">November 2022 – Present, as listed in CV</p>
-      <h2>Postdoctoral Researcher</h2>
-      <p>Robert Morris University · Department of Engineering</p>
-      <p>
-        High-fidelity human head models for blast-induced traumatic brain injury
-        prediction.
-      </p>
+      <div>
+        <p class="eyebrow">November 2022 – Present, as listed in CV</p>
+        <h2>Postdoctoral Researcher</h2>
+        <p>Robert Morris University · Department of Engineering</p>
+        <p>
+          High-fidelity human head models for blast-induced traumatic brain
+          injury prediction.
+        </p>
+      </div>
+      <ExperienceLogos
+        logos={[
+          { file: "rmu.png", name: "Robert Morris University", label: "RMU" },
+          {
+            file: "panther.png",
+            name: "PANTHER research program",
+            label: "PANTHER",
+          },
+          { file: "onr.png", name: "Office of Naval Research", label: "ONR" },
+        ]}
+      />
     </div>
     <div class="timeline">
-      <p class="eyebrow">February 2020 – October 2022</p>
-      <h2>Postdoctoral Associate</h2>
-      <p>University of Pittsburgh · Department of Ophthalmology</p>
-      <p>
-        Micromechanics-based numerical modeling of scleral collagen
-        architecture.
-      </p>
+      <div>
+        <p class="eyebrow">February 2020 – October 2022</p>
+        <h2>Postdoctoral Associate</h2>
+        <p>University of Pittsburgh · Department of Ophthalmology</p>
+        <p>
+          Micromechanics-based numerical modeling of scleral collagen
+          architecture.
+        </p>
+      </div>
+      <ExperienceLogos
+        logos={[
+          {
+            file: "pitt.png",
+            name: "University of Pittsburgh",
+            label: "University of Pittsburgh",
+          },
+          {
+            file: "nih.png",
+            name: "National Institutes of Health",
+            label: "NIH",
+          },
+        ]}
+      />
     </div>
     <div class="timeline">
-      <p class="eyebrow">November 2014 – September 2019</p>
-      <h2>Senior Research Fellow</h2>
-      <p>
-        Indian Institute of Technology Roorkee · Mechanical and Industrial
-        Engineering
-      </p>
-      <p>Multiscale XFEM frameworks for heterogeneous materials.</p>
+      <div>
+        <p class="eyebrow">November 2014 – September 2019</p>
+        <h2>Senior Research Fellow</h2>
+        <p>
+          Indian Institute of Technology Roorkee · Mechanical and Industrial
+          Engineering
+        </p>
+        <p>Multiscale XFEM frameworks for heterogeneous materials.</p>
+      </div>
+      <ExperienceLogos
+        logos={[
+          {
+            file: "iit-roorkee.png",
+            name: "Indian Institute of Technology Roorkee",
+            label: "IIT Roorkee",
+          },
+          {
+            file: "csir.png",
+            name: "Council of Scientific and Industrial Research",
+            label: "CSIR",
+          },
+          {
+            file: "brns.png",
+            name: "Board of Research in Nuclear Sciences",
+            label: "BRNS",
+          },
+          {
+            file: "barc.svg",
+            name: "Bhabha Atomic Research Centre",
+            label: "BARC",
+          },
+        ]}
+      />
     </div>
   </section>
   <section class="section">
@@ -52,3 +108,22 @@ import Layout from "../layouts/Layout.astro";
     </ul>
   </section>
 </Layout>
+
+<style>
+  .timeline {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: center;
+    gap: 36px;
+    padding: 28px 0;
+  }
+  @media (max-width: 850px) {
+    .timeline {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .timeline :global(.experience-logos) {
+      max-width: 380px;
+    }
+  }
+</style>
