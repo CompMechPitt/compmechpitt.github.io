@@ -1,38 +1,120 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import publications from "../data/publications.json";
+import scholar from "../data/scholar-metrics.json";
+import journalMetrics from "../data/journal-metrics.json";
+
+const scholarUpdated = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "long",
+  timeZone: "UTC",
+}).format(new Date(`${scholar.asOf}T00:00:00Z`));
+
+const journalMetricsUpdated = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "long",
+  timeZone: "UTC",
+}).format(new Date(`${journalMetrics.asOf}T00:00:00Z`));
 ---
 
 <Layout title="Publications">
   <p class="eyebrow">Scholarship</p>
   <h1>Publications</h1>
   <p class="lead">
-    Journal publications listed in the supplied CV. Bibliographic metadata is
-    preserved without inferring missing identifiers.
+    Journal publications listed in the supplied CV, with citation statistics
+    verified against Google Scholar.
   </p>
-  <p class="placeholder">
-    DOIs and publisher links: pending verification. Add verified identifiers
-    before publication. In-progress manuscripts are not presented as published
-    work.
+  <section class="scholar-summary" aria-labelledby="scholar-heading">
+    <div class="scholar-summary__heading">
+      <div>
+        <p class="eyebrow">Research impact</p>
+        <h2 id="scholar-heading">Google Scholar metrics</h2>
+      </div>
+      <a href={scholar.profileUrl}>View Google Scholar profile</a>
+    </div>
+    <dl class="scholar-metrics">
+      <div>
+        <dt>Citations</dt>
+        <dd>{scholar.totals.citations}</dd>
+      </div>
+      <div>
+        <dt>h-index</dt>
+        <dd>{scholar.totals.hIndex}</dd>
+      </div>
+      <div>
+        <dt>i10-index</dt>
+        <dd>{scholar.totals.i10Index}</dd>
+      </div>
+    </dl>
+    <p class="scholar-summary__note">
+      Profile totals and article citation counts verified {scholarUpdated}.
+      Profile totals cover all indexed works; the counts below correspond to
+      the journal publications listed on this page. Citation data changes over
+      time.
+    </p>
+  </section>
+  <p class="metrics-note">
+    Journal Impact Factors are the 2024 Journal Citation Reports values shown by
+    the journal or publisher; journal h-index values are the 2024 SCImago values.
+    Verified {journalMetricsUpdated}. These journal-level metrics change over
+    time and do not measure an individual article.
   </p>
-  {publications.map((p) => (
-    <article class="publication" id={p.id}>
-      <p class="eyebrow">{p.year} · Journal article</p>
-      <h2>{p.title}</h2>
-      <p>{p.authors.join(", ")}</p>
-      <p>
-        <em>{p.journal}</em> · {p.year}
-      </p>
-      {p.doi ? (
-        <a href={`https://doi.org/${p.doi}`}>DOI: {p.doi}</a>
-      ) : (
-        <span class="meta">DOI: placeholder — pending verification</span>
-      )}
-      {p.links.map((l: { label: string; url: string }) => (
+  {publications.map((p) => {
+    const citationCount = scholar.publications.find(
+      (metric) => metric.id === p.id,
+    )?.citations;
+    const journalMetric = journalMetrics.journals.find(
+      (metric) => metric.journal === p.journal,
+    );
+
+    return (
+      <article class="publication" id={p.id}>
+        <p class="eyebrow">{p.year} · Journal article</p>
+        <h2>
+          {p.doi ? (
+            <a href={`https://doi.org/${p.doi}`}>{p.title}</a>
+          ) : (
+            p.title
+          )}
+        </h2>
+        <p>{p.authors.join(", ")}</p>
         <p>
-          <a href={l.url}>{l.label}</a>
+          <em>{p.journal}</em> · {p.year}
         </p>
-      ))}
-    </article>
-  ))}
+        <div class="publication-metrics" aria-label={`Metrics for ${p.title}`}>
+          {citationCount !== undefined && (
+            <span class="publication-citations">
+              <strong>{citationCount}</strong>{" "}
+              Google Scholar {citationCount === 1 ? "citation" : "citations"}
+            </span>
+          )}
+          {journalMetric && (
+            <>
+              <a
+                class="journal-metric"
+                href={journalMetric.impactFactorSource}
+                aria-label={`${p.journal} ${journalMetrics.impactFactorYear} Journal Impact Factor ${journalMetric.impactFactor}`}
+              >
+                <span>Journal Impact Factor</span>
+                <strong>{journalMetric.impactFactor}</strong>
+                <small>{journalMetrics.impactFactorYear}</small>
+              </a>
+              <a
+                class="journal-metric"
+                href={journalMetric.hIndexSource}
+                aria-label={`${p.journal} ${journalMetrics.hIndexYear} SCImago h-index ${journalMetric.hIndex}`}
+              >
+                <span>Journal h-index</span>
+                <strong>{journalMetric.hIndex}</strong>
+                <small>SCImago {journalMetrics.hIndexYear}</small>
+              </a>
+            </>
+          )}
+        </div>
+        {p.links.map((l: { label: string; url: string }) => (
+          <p>
+            <a href={l.url}>{l.label}</a>
+          </p>
+        ))}
+      </article>
+    );
+  })}
 </Layout>

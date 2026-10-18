@@ -1,0 +1,63 @@
+{
+  "asOf": "2026-10-18",
+  "impactFactorYear": 2024,
+  "hIndexYear": 2024,
+  "journals": [
+    {
+      "journal": "Investigative Ophthalmology & Visual Science",
+      "impactFactor": 4.7,
+      "hIndex": 260,
+      "impactFactorSource": "https://iovs.arvojournals.org/",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?q=Investigative+Ophthalmology+and+Visual+Science"
+    },
+    {
+      "journal": "Acta Biomaterialia",
+      "impactFactor": 9.4,
+      "hIndex": 261,
+      "impactFactorSource": "https://www.elsevier.com/subject/materials-science/acta-materialia",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?q=Acta+Biomaterialia"
+    },
+    {
+      "journal": "Experimental Eye Research",
+      "impactFactor": 2.7,
+      "hIndex": 153,
+      "impactFactorSource": "https://www.sciencedirect.com/journal/experimental-eye-research",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?q=Experimental+Eye+Research"
+    },
+    {
+      "journal": "Engineering Fracture Mechanics",
+      "impactFactor": 5.3,
+      "hIndex": 166,
+      "impactFactorSource": "https://www.sciencedirect.com/journal/engineering-fracture-mechanics",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?clean=0&q=20594&tip=sid"
+    },
+    {
+      "journal": "Computer Methods in Applied Mechanics and Engineering",
+      "impactFactor": 7.3,
+      "hIndex": 246,
+      "impactFactorSource": "https://www.sciencedirect.com/journal/computer-methods-in-applied-mechanics-and-engineering",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?q=Computer+Methods+in+Applied+Mechanics+and+Engineering"
+    },
+    {
+      "journal": "Composite Structures",
+      "impactFactor": 6.3,
+      "hIndex": 213,
+      "impactFactorSource": "https://www.sciencedirect.com/journal/composite-structures",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?q=Composite+Structures"
+    },
+    {
+      "journal": "Journal of Nuclear Materials",
+      "impactFactor": 3.2,
+      "hIndex": 174,
+      "impactFactorSource": "https://www.sciencedirect.com/journal/journal-of-nuclear-materials",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?q=Journal+of+Nuclear+Materials"
+    },
+    {
+      "journal": "The Journal of Strain Analysis for Engineering Design",
+      "impactFactor": 1.8,
+      "hIndex": 60,
+      "impactFactorSource": "https://journals.sagepub.com/home/sdj",
+      "hIndexSource": "https://www.scimagojr.com/journalsearch.php?clean=0&q=21189&tip=sid"
+    }
+  ]
+}

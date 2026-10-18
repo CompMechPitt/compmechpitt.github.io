@@ -1,5 +1,6 @@
 interface:
   display_name: "Portfolio · Local Only"
   short_description: "Edit locally; I preview and publish."
+  default_prompt: "Use $portfolio-local to make this portfolio change locally without previewing or publishing it."
 policy:
   allow_implicit_invocation: false
