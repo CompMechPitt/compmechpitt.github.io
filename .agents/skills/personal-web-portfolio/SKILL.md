@@ -1,6 +1,6 @@
 ---
 name: personal-web-portfolio
-description: Maintain Manik Bansal's Astro research portfolio in this repository, including navigation, project pages, publications, downloadable CV/resume, and GitHub Pages publishing. Use for requests to edit this site; not for unrelated Astro projects.
+description: Edit Manik Bansal's Astro research portfolio, including page layout, institution logos, professional profiles, projects, publications, and CV/resume links. Use for updates to compmechpitt.github.io.
 ---
 
 # Personal web portfolio
@@ -21,10 +21,10 @@ Work in the existing `compmechpitt.github.io` checkout. Read `AGENTS.md` and `CO
 
 Keep local links and assets compatible with `import.meta.env.BASE_URL`. Keep page headings, keyboard focus, meaningful image alternatives, captions, and narrow-screen navigation usable. Preserve the old `/cv/` and `/projects/` routes as paths to their consolidated content when changing those sections.
 
-When updating education, use the same dated text-and-logo row pattern as research experience. Keep degree, institution, and years tied to the author-approved CV. For professional profiles, use accessible linked cards with recognizable service marks and descriptive text; use URLs supplied by the author and check links before publication. Keep a readable local or text fallback if a remote icon fails.
+When updating education, use the same dated text-and-logo row pattern as research experience. Keep degree, institution, and years tied to the author-approved CV. Show institution and sponsor logos without duplicate labels beneath them; keep their names in image alt text. Preserve source logos and use transparent presentation or contrast adjustments when a logo has white text or a white background. Inspect the result against the site's light background. For professional profiles, use accessible linked cards with recognizable service marks and descriptive text; use URLs supplied by the author and check links before publication. Keep a readable local or text fallback if a remote icon fails.
 
 ## Edit and release
 
-Make the requested edit with the smallest coherent change. For new research facts or publications, check author-approved sources and preserve placeholders when facts remain unverified. Run `npm ci`, `npm run build`, and `npm test`; inspect the generated site or browser at desktop and narrow widths when layout changes. Work on a review branch, push it, and open a pull request when requested. Merging into `main` triggers GitHub Pages deployment; do so only when the user has authorized publication.
+Make the requested edit with the smallest coherent change. For new research facts or publications, check author-approved sources and preserve placeholders when facts remain unverified. Run `npm ci`, `npm run build`, and `npm test`; inspect the generated site or browser at desktop and narrow widths when layout changes. For every update request, create a fresh review branch, push it, and open a new pull request. Never reuse a merged pull request. Merging into `main` triggers GitHub Pages deployment; do so only when the user has authorized publication.
 
 This skill adapts the static Astro, content collection, validation, and GitHub Pages topics from [SpillwaveSolutions' Publishing Astro Websites skill](https://github.com/SpillwaveSolutions/publishing-astro-websites-agentic-skill) to this repository. Its broader guidance on i18n, search, Mermaid, and alternative deployment platforms is not needed for routine portfolio edits.
