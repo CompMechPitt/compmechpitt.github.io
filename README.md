@@ -20,7 +20,7 @@ If the cloud machine has an unwritable default npm cache, use `npm ci --cache /t
 
 ## Content
 
-See [CONTENT_GUIDE.md](CONTENT_GUIDE.md). The main navigation shows Home, About, Research, Publications, Software & Tools, Teaching, Awards & Service, and Contact in a horizontal row. Research includes the project overview, and About includes the CV and resume downloads. The old `/projects/` and `/cv/` URLs remain as signposts. Facts derive from the supplied CV (May 20, 2026) and user-provided research themes. Missing DOIs, profile URLs, media, and future research details are explicitly labeled. The industry resume is a draft, not an approved application document.
+See [CONTENT_GUIDE.md](CONTENT_GUIDE.md). The main navigation shows Home, About, Research, Publications, Software & Tools, Teaching, Awards & Service, and Contact in a horizontal row. Research includes the project overview, and About includes the CV and resume downloads. The old `/projects/` and `/cv/` URLs remain as signposts. Facts derive from the supplied CV (May 20, 2026) and user-provided research themes. Missing DOIs, media, and future research details are explicitly labeled. The industry resume is a draft, not an approved application document.
 
 The downloadable CV has its referee section removed. Remaining personal details and the visibly labeled draft industry resume were approved by the author for public release.
 
@@ -40,6 +40,6 @@ This branch has not been merged or published. Review facts, placeholders, and do
 - `src/layouts/`, `src/styles/`: shared navigation, metadata, and responsive design
 - `public/downloads/`: separate CV and draft industry resume PDFs
 - `.github/workflows/deploy.yml`: PR validation and main deployment
-- `skills/personal-web-portfolio/`: repo-specific Codex guidance for maintaining this site
+- `.agents/skills/personal-web-portfolio/`: repo-specific Codex guidance for maintaining this site
 
 Copyright remains governed by COPYRIGHT.md.

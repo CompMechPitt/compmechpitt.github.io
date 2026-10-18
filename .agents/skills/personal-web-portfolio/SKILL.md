@@ -11,6 +11,8 @@ Work in the existing `compmechpitt.github.io` checkout. Read `AGENTS.md` and `CO
 
 - `src/layouts/Layout.astro` and `src/styles/global.css`: shared horizontal navigation, metadata, and responsive layout.
 - `src/pages/about.astro`: biography, experience, education, and CV/resume downloads.
+- `src/components/ExperienceLogos.astro` and `public/media/logos/`: institution logos for experience and education; record each image source in `sources.json`.
+- `src/pages/contact.astro`: email and the author's public professional profiles. Use the public ORCID record URL, not the account dashboard URL.
 - `src/pages/research.astro`: research overview and cards loaded from the `projects` content collection.
 - `src/content/projects/`: source Markdown for project cards and detail pages; schema in `src/content.config.ts`.
 - `src/data/publications.json`: structured publication records.
@@ -18,6 +20,8 @@ Work in the existing `compmechpitt.github.io` checkout. Read `AGENTS.md` and `CO
 - `astro.config.mjs` and `.github/workflows/deploy.yml`: root-base GitHub Pages configuration and deployment.
 
 Keep local links and assets compatible with `import.meta.env.BASE_URL`. Keep page headings, keyboard focus, meaningful image alternatives, captions, and narrow-screen navigation usable. Preserve the old `/cv/` and `/projects/` routes as paths to their consolidated content when changing those sections.
+
+When updating education, use the same dated text-and-logo row pattern as research experience. Keep degree, institution, and years tied to the author-approved CV. For professional profiles, use accessible linked cards with recognizable service marks and descriptive text; use URLs supplied by the author and check links before publication. Keep a readable local or text fallback if a remote icon fails.
 
 ## Edit and release
 
