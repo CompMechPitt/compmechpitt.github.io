@@ -1,0 +1,5 @@
+interface:
+  display_name: "Portfolio · PR Automation"
+  short_description: "Implement through PR; I review and merge."
+policy:
+  allow_implicit_invocation: false
