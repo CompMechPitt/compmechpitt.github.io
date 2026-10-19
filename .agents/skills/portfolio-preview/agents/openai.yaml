@@ -1,6 +1,0 @@
-interface:
-  display_name: "Portfolio · Preview Loop"
-  short_description: "Edit and preview locally; I publish."
-  default_prompt: "Use $portfolio-preview to edit this portfolio locally and verify the result in a browser."
-policy:
-  allow_implicit_invocation: false

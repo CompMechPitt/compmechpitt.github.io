@@ -1,4 +1,0 @@
-interface:
-  display_name: "Personal Web Portfolio"
-  short_description: "Edit Manik Bansal's research portfolio"
-  default_prompt: "Use $personal-web-portfolio to make an evidence-backed update to my Astro portfolio."

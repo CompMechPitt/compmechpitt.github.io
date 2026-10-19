@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import publications from "../data/publications.json";
 import scholar from "../data/scholar-metrics.json";
 import journalMetrics from "../data/journal-metrics.json";
+import journalCovers from "../data/journal-covers.json";
 
 const scholarUpdated = new Intl.DateTimeFormat("en-US", {
   dateStyle: "long",
@@ -46,16 +47,15 @@ const journalMetricsUpdated = new Intl.DateTimeFormat("en-US", {
     </dl>
     <p class="scholar-summary__note">
       Profile totals and article citation counts verified {scholarUpdated}.
-      Profile totals cover all indexed works; the counts below correspond to
-      the journal publications listed on this page. Citation data changes over
-      time.
+      Profile totals cover all indexed works; the counts below correspond to the
+      journal publications listed on this page. Citation data changes over time.
     </p>
   </section>
   <p class="metrics-note">
     Journal Impact Factors are the 2024 Journal Citation Reports values shown by
-    the journal or publisher; journal h-index values are the 2024 SCImago values.
-    Verified {journalMetricsUpdated}. These journal-level metrics change over
-    time and do not measure an individual article.
+    the journal or publisher; journal h-index values are the 2024 SCImago
+    values. Verified {journalMetricsUpdated}. These journal-level metrics change
+    over time and do not measure an individual article.
   </p>
   {publications.map((p) => {
     const citationCount = scholar.publications.find(
@@ -64,56 +64,76 @@ const journalMetricsUpdated = new Intl.DateTimeFormat("en-US", {
     const journalMetric = journalMetrics.journals.find(
       (metric) => metric.journal === p.journal,
     );
+    const journalCover = journalCovers.find(
+      (cover) => cover.journal === p.journal,
+    );
 
     return (
       <article class="publication" id={p.id}>
-        <p class="eyebrow">{p.year} · Journal article</p>
-        <h2>
-          {p.doi ? (
-            <a href={`https://doi.org/${p.doi}`}>{p.title}</a>
-          ) : (
-            p.title
-          )}
-        </h2>
-        <p>{p.authors.join(", ")}</p>
-        <p>
-          <em>{p.journal}</em> · {p.year}
-        </p>
-        <div class="publication-metrics" aria-label={`Metrics for ${p.title}`}>
-          {citationCount !== undefined && (
-            <span class="publication-citations">
-              <strong>{citationCount}</strong>{" "}
-              Google Scholar {citationCount === 1 ? "citation" : "citations"}
-            </span>
-          )}
-          {journalMetric && (
-            <>
-              <a
-                class="journal-metric"
-                href={journalMetric.impactFactorSource}
-                aria-label={`${p.journal} ${journalMetrics.impactFactorYear} Journal Impact Factor ${journalMetric.impactFactor}`}
-              >
-                <span>Journal Impact Factor</span>
-                <strong>{journalMetric.impactFactor}</strong>
-                <small>{journalMetrics.impactFactorYear}</small>
-              </a>
-              <a
-                class="journal-metric"
-                href={journalMetric.hIndexSource}
-                aria-label={`${p.journal} ${journalMetrics.hIndexYear} SCImago h-index ${journalMetric.hIndex}`}
-              >
-                <span>Journal h-index</span>
-                <strong>{journalMetric.hIndex}</strong>
-                <small>SCImago {journalMetrics.hIndexYear}</small>
-              </a>
-            </>
-          )}
-        </div>
-        {p.links.map((l: { label: string; url: string }) => (
+        {journalCover && (
+          <figure class="publication-cover">
+            <img
+              src={`${import.meta.env.BASE_URL}${journalCover.src}`}
+              alt={journalCover.alt}
+              width="180"
+              height="240"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        )}
+        <div class="publication-content">
+          <p class="eyebrow">{p.year} · Journal article</p>
+          <h2>
+            {p.doi ? (
+              <a href={`https://doi.org/${p.doi}`}>{p.title}</a>
+            ) : (
+              p.title
+            )}
+          </h2>
+          <p>{p.authors.join(", ")}</p>
           <p>
-            <a href={l.url}>{l.label}</a>
+            <em>{p.journal}</em> · {p.year}
           </p>
-        ))}
+          <div
+            class="publication-metrics"
+            aria-label={`Metrics for ${p.title}`}
+          >
+            {citationCount !== undefined && (
+              <span class="publication-citations">
+                <strong>{citationCount}</strong> Google Scholar{" "}
+                {citationCount === 1 ? "citation" : "citations"}
+              </span>
+            )}
+            {journalMetric && (
+              <>
+                <a
+                  class="journal-metric"
+                  href={journalMetric.impactFactorSource}
+                  aria-label={`${p.journal} ${journalMetrics.impactFactorYear} Journal Impact Factor ${journalMetric.impactFactor}`}
+                >
+                  <span>Journal Impact Factor</span>
+                  <strong>{journalMetric.impactFactor}</strong>
+                  <small>{journalMetrics.impactFactorYear}</small>
+                </a>
+                <a
+                  class="journal-metric"
+                  href={journalMetric.hIndexSource}
+                  aria-label={`${p.journal} ${journalMetrics.hIndexYear} SCImago h-index ${journalMetric.hIndex}`}
+                >
+                  <span>Journal h-index</span>
+                  <strong>{journalMetric.hIndex}</strong>
+                  <small>SCImago {journalMetrics.hIndexYear}</small>
+                </a>
+              </>
+            )}
+          </div>
+          {p.links.map((l: { label: string; url: string }) => (
+            <p>
+              <a href={l.url}>{l.label}</a>
+            </p>
+          ))}
+        </div>
       </article>
     );
   })}
