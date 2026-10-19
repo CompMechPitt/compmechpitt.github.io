@@ -1,0 +1,21 @@
+{
+  "usageNote": "Journal-cover files were supplied by the site owner and approved for use on the portfolio on October 18, 2026. They are presented without alteration to their publication identity.",
+  "originalLocation": "dist/media/journal_cover_images",
+  "files": {
+    "acta-biomaterialia.jpg": "Acta_BioMaterialia.jpg",
+    "applied-composite-materials.jpg": "applied_composite_materials.jpg",
+    "composite-structures.jpg": "Composite_Structures.jpg",
+    "computer-methods-applied-mechanics-engineering.jpg": "Computer_Methods_in_Applied_Mechanics_and_Engineering.jpg",
+    "engineering-fracture-mechanics.jpg": "Engineering_Fracture_Mechanics.jpg",
+    "engineering-structures.webp": "engineering_structures.jpg (WebP source data)",
+    "experimental-eye-research.jpg": "experimental-eye-research.jpg",
+    "frontiers-bioengineering.jpg": "frontiers_in_Bioengineering_and_Biotechnology.jpg",
+    "international-journal-damage-mechanics.webp": "internation_journal_of_Damage_Mechanics.png (WebP source data)",
+    "investigative-ophthalmology-visual-science.jpg": "IOVS.jpg",
+    "journal-acoustical-society-america.jpg": "The_journal_of_the_Acoustical_Society_of_America.jpg",
+    "journal-of-nuclear-materials.jpg": "journal_of_nuclear_Materials.jpg",
+    "journal-strain-analysis-engineering-design.png": "Journal_of_Strain_Analysis_for_Engineering_Design.png",
+    "military-medicine.jpg": "Military_Medicine.jpg",
+    "progress-additive-manufacturing.jpg": "Progress_in_Additive_Manufacturing.jpg"
+  }
+}

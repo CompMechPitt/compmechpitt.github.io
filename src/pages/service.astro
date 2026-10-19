@@ -1,5 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const journalReviews = [
+  {
+    journal: "International Journal of Damage Mechanics",
+    years: "2020",
+    cover: "media/journal-covers/international-journal-damage-mechanics.webp",
+  },
+  {
+    journal: "Engineering Structures",
+    years: "2022, 2024",
+    cover: "media/journal-covers/engineering-structures.webp",
+  },
+  {
+    journal: "Applied Composite Materials",
+    years: "2024, 2025",
+    cover: "media/journal-covers/applied-composite-materials.jpg",
+  },
+  {
+    journal: "Experimental Eye Research",
+    years: "2025",
+    cover: "media/journal-covers/experimental-eye-research.jpg",
+  },
+  {
+    journal: "Progress in Additive Manufacturing",
+    years: "2025",
+    cover: "media/journal-covers/progress-additive-manufacturing.jpg",
+  },
+  {
+    journal: "Military Medicine",
+    years: "2025, 2026–ongoing",
+    cover: "media/journal-covers/military-medicine.jpg",
+  },
+  {
+    journal: "Frontiers in Bioengineering",
+    years: "2026–ongoing",
+    cover: "media/journal-covers/frontiers-bioengineering.jpg",
+  },
+];
 ---
 
 <Layout title="Awards & Service">
@@ -29,18 +67,74 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section class="section">
     <h2>Peer review & community</h2>
-    <p>
-      Conference abstract reviewer: SB3C (2022, 2025) and American Society of
-      Biomechanics (2025).
-    </p>
-    <p>
-      Journal reviewing listed in the CV includes International Journal of
-      Damage Mechanics, Engineering Structures, Applied Composite Materials,
-      Experimental Eye Research, and Progress in Additive Manufacturing.
-    </p>
-    <p>
-      Co-moderator, Acoustical Society of America webinar “Cavitation-Induced
-      Brain Injury: Mechanisms and Modeling,” November 20, 2025.
-    </p>
+    <div class="service-group">
+      <h3>Conference Abstract review</h3>
+      <ul class="service-list">
+        <li>
+          Summer Biomechanics, Bioengineering and Biotransport Conference (SB3C)
+          —{" "}
+          <strong>
+            <em>2022, 2025</em>
+          </strong>
+        </li>
+        <li>
+          American Society of Biomechanics (ASB) —
+          <strong>
+            <em>2025</em>
+          </strong>
+        </li>
+      </ul>
+    </div>
+    <div class="service-group">
+      <h3>Journal Reviewing</h3>
+      <ul class="journal-shelf" aria-label="Journals reviewed">
+        {journalReviews.map((review) => (
+          <li class="journal-book">
+            <div class="journal-book__cover">
+              <img
+                src={`${import.meta.env.BASE_URL}${review.cover}`}
+                alt={`Cover of ${review.journal}`}
+                width="150"
+                height="200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <p>{review.journal}</p>
+            <strong>
+              <em>{review.years}</em>
+            </strong>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="service-group">
+      <h3>Co-moderator</h3>
+      <article class="moderator-feature">
+        <div class="moderator-feature__cover">
+          <img
+            src={`${import.meta.env.BASE_URL}media/journal-covers/journal-acoustical-society-america.jpg`}
+            alt="Cover of The Journal of the Acoustical Society of America"
+            width="170"
+            height="225"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div>
+          <p class="eyebrow">Acoustical Society of America webinar</p>
+          <p class="moderator-feature__topic">
+            <strong>
+              “Cavitation-Induced Brain Injury: Mechanisms and Modeling”
+            </strong>
+          </p>
+          <p>
+            <strong>
+              <em>November 20, 2025</em>
+            </strong>
+          </p>
+        </div>
+      </article>
+    </div>
   </section>
 </Layout>

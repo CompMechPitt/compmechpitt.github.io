@@ -42,6 +42,6 @@ This branch has not been merged or published. Review facts, placeholders, and do
 - `src/layouts/`, `src/styles/`: shared navigation, metadata, and responsive design
 - `public/downloads/`: separate CV and draft industry resume PDFs
 - `.github/workflows/deploy.yml`: PR validation and main deployment
-- `.agents/skills/personal-web-portfolio/`: repo-specific Codex guidance for maintaining this site
+- `AGENTS.md`: repository-specific Codex rules and automatic routing to the canonical global portfolio skills in `%CODEX_HOME%\skills`
 
 Copyright remains governed by COPYRIGHT.md.

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Portfolio · PR Automation"
-  short_description: "Implement through PR; I review and merge."
-  default_prompt: "Use $portfolio-pr to implement this portfolio change and open a pull request for my review."
-policy:
-  allow_implicit_invocation: false
